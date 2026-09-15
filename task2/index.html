@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FleetAuto — автокредит и выкуп авто</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="#top" class="logo">
+          <span class="logo-badge">FA</span>
+          <span class="logo-text">FleetAuto</span>
+        </a>
+
+        <nav class="main-nav" aria-label="Основная навигация">
+          <ul class="nav-list">
+            <li><a href="#catalog">Каталог</a></li>
+            <li><a href="#credit">Автокредит</a></li>
+            <li><a href="#buyout">Выкуп</a></li>
+            <li><a href="#tradein">Trade-In</a></li>
+            <li><a href="#contact">Контакты</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <button class="icon-btn" type="button" aria-label="Избранное">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+              <path
+                d="M12 20.5c-.2 0-.4-.05-.55-.16C7.9 17.9 3 14.2 3 9.9 3 6.9 5.3 4.7 8.1 4.7c1.6 0 3.1.8 3.9 2.1.8-1.3 2.3-2.1 3.9-2.1 2.8 0 5.1 2.2 5.1 5.2 0 4.3-4.9 8-8.45 10.44-.15.11-.35.16-.55.16Z"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+              />
+            </svg>
+          </button>
+          <a href="#contact" class="btn btn-primary btn-compact"
+            >Заказать звонок</a
+          >
+          <button
+            class="burger"
+            type="button"
+            aria-label="Открыть меню"
+            aria-expanded="false"
+          >
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- что-то интересное -->
+      <section class="hero" id="credit">
+        <div class="container hero-inner">
+          <div class="hero-text">
+            <p class="badge">Без комиссии</p>
+            <h1>
+              Автокредит <span class="accent">у частного лица</span> без
+              первоначального взноса на авто с пробегом
+            </h1>
+            <p class="hero-lead">
+              Подберём авто из наличия или у любого частного лица с гарантией
+              технической и юридической чистоты сделки.
+            </p>
+
+            <div class="hero-buttons">
+              <a href="#contact" class="btn btn-primary">Оформить кредит</a>
+              <a href="#catalog" class="btn btn-outline">Каталог авто</a>
+            </div>
+
+            <ul class="feature-list">
+              <li class="feature-item">
+                <span class="feature-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="22" height="22">
+                    <path
+                      d="M4 17V9.5a2 2 0 0 1 .6-1.4l3-3A2 2 0 0 1 9 4.5h6a2 2 0 0 1 1.4.6l3 3a2 2 0 0 1 .6 1.4V17M4 17a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2m-5 0h16m0 0a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2m5 0v-3M9 17v-3h6v3"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <circle cx="8" cy="17" r="1.4" fill="currentColor" />
+                    <circle cx="16" cy="17" r="1.4" fill="currentColor" />
+                  </svg>
+                </span>
+                <span class="feature-text"
+                  >Автокредит 0 ₽ взнос, без справок и поручителей</span
+                >
+              </li>
+              <li class="feature-item">
+                <span class="feature-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="22" height="22">
+                    <path
+                      d="M12 3v6m0 0-3-3m3 3 3-3M5 13h14M5 13a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </span>
+                <span class="feature-text"
+                  >Выкуп авто любых марок и состояний за 60 минут</span
+                >
+              </li>
+              <li class="feature-item">
+                <span class="feature-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="22" height="22">
+                    <path
+                      d="M7 16V4m0 0L3 8m4-4 4 4m6 4v12m0 0 4-4m-4 4-4-4"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </span>
+                <span class="feature-text"
+                  >Trade-in всех авто со скидкой до 300 000 ₽</span
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="hero-media">
+            <img
+              src="img/heroauto.jpg"
+              alt="Автомобили в кредит"
+              class="car-thumb"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- каталог -->
+      <section class="catalog" id="catalog">
+        <div class="container">
+          <h2>Каталог автомобилей</h2>
+
+          <div class="catalog-grid">
+            <article class="car-card">
+              <div class="car-card-media">
+                <img
+                  src="img/lexus-IS300.jpg"
+                  alt="Lexus IS300, 2021"
+                  class="car-thumb"
+                />
+              </div>
+              <div class="car-card-body">
+                <div class="car-card-title-row">
+                  <h3>Lexus, IS300, 2021</h3>
+                </div>
+                <p class="car-price">4 690 000 р.</p>
+                <dl class="car-specs">
+                  <div>
+                    <dt>Пробег</dt>
+                    <dd>8 000 км</dd>
+                  </div>
+                  <div>
+                    <dt>Модификация</dt>
+                    <dd>2.0 AT (245 л.с.)</dd>
+                  </div>
+                  <div>
+                    <dt>Тип двигателя</dt>
+                    <dd>Бензин</dd>
+                  </div>
+                  <div>
+                    <dt>Привод</dt>
+                    <dd>Задний</dd>
+                  </div>
+                  <div>
+                    <dt>Владельцев по ПТС</dt>
+                    <dd>1</dd>
+                  </div>
+                </dl>
+                <div class="car-card-actions">
+                  <a href="#contact" class="btn btn-primary btn-block"
+                    >Купить в кредит</a
+                  >
+                  <a
+                    href="tel:+70000000000"
+                    class="icon-btn icon-btn--framed"
+                    aria-label="Позвонить"
+                  >
+                    <svg viewBox="0 0 24 24" width="18" height="18">
+                      <path
+                        d="M4 5c0-1 1-2 2-2h2l2 5-2 2c1 3 3 5 6 6l2-2 5 2v2c0 1-1 2-2 2C10 20 4 14 4 5Z"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article class="car-card">
+              <div class="car-card-media">
+                <img src="img/bmwm5.jpg" alt="BMW M5, 2013" class="car-thumb" />
+              </div>
+              <div class="car-card-body">
+                <div class="car-card-title-row">
+                  <h3>BMW M5, 2013</h3>
+                </div>
+                <p class="car-price">3 370 000 р.</p>
+                <dl class="car-specs">
+                  <div>
+                    <dt>Пробег</dt>
+                    <dd>98 000 км</dd>
+                  </div>
+                  <div>
+                    <dt>Модификация</dt>
+                    <dd>4.4 AT (560 л.с.)</dd>
+                  </div>
+                  <div>
+                    <dt>Тип двигателя</dt>
+                    <dd>Бензин</dd>
+                  </div>
+                  <div>
+                    <dt>Привод</dt>
+                    <dd>Задний</dd>
+                  </div>
+                  <div>
+                    <dt>Владельцев по ПТС</dt>
+                    <dd>3</dd>
+                  </div>
+                </dl>
+                <div class="car-card-actions">
+                  <a href="#contact" class="btn btn-primary btn-block"
+                    >Купить в кредит</a
+                  >
+                  <a
+                    href="tel:+70000000000"
+                    class="icon-btn icon-btn--framed"
+                    aria-label="Позвонить"
+                  >
+                    <svg viewBox="0 0 24 24" width="18" height="18">
+                      <path
+                        d="M4 5c0-1 1-2 2-2h2l2 5-2 2c1 3 3 5 6 6l2-2 5 2v2c0 1-1 2-2 2C10 20 4 14 4 5Z"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article class="car-card">
+              <div class="car-card-media">
+                <img
+                  src="img/audirs7.jpg"
+                  alt="Audi RS7, 2016"
+                  class="car-thumb"
+                />
+              </div>
+              <div class="car-card-body">
+                <div class="car-card-title-row">
+                  <h3>Audi RS7, 2016 г.</h3>
+                </div>
+                <p class="car-price">7 300 480 р.</p>
+                <dl class="car-specs">
+                  <div>
+                    <dt>Пробег</dt>
+                    <dd>98 000 км</dd>
+                  </div>
+                  <div>
+                    <dt>Модификация</dt>
+                    <dd>4.0 AT (605 л.с.)</dd>
+                  </div>
+                  <div>
+                    <dt>Тип двигателя</dt>
+                    <dd>Бензин</dd>
+                  </div>
+                  <div>
+                    <dt>Привод</dt>
+                    <dd>Полный</dd>
+                  </div>
+                  <div>
+                    <dt>Владельцев по ПТС</dt>
+                    <dd>3</dd>
+                  </div>
+                </dl>
+                <div class="car-card-actions">
+                  <a href="#contact" class="btn btn-primary btn-block"
+                    >Купить в кредит</a
+                  >
+                  <a
+                    href="tel:+70000000000"
+                    class="icon-btn icon-btn--framed"
+                    aria-label="Позвонить"
+                  >
+                    <svg viewBox="0 0 24 24" width="18" height="18">
+                      <path
+                        d="M4 5c0-1 1-2 2-2h2l2 5-2 2c1 3 3 5 6 6l2-2 5 2v2c0 1-1 2-2 2C10 20 4 14 4 5Z"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="catalog-more">
+            <a href="#catalog" class="btn btn-primary">Смотреть все авто</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- трейд-ин -->
+      <section class="perks" id="tradein">
+        <div class="container perks-grid">
+          <div class="perk">
+            <h3>Trade-In</h3>
+            <p>
+              Сдайте свой автомобиль в зачёт и доплатите разницу за новый — без
+              лишних поездок по перекупам.
+            </p>
+          </div>
+          <div class="perk" id="buyout">
+            <h3>Выкуп авто</h3>
+            <p>
+              Оценим машину онлайн за 15 минут и приедем оформить сделку в
+              удобное для вас время.
+            </p>
+          </div>
+          <div class="perk">
+            <h3>Гарантия чистоты</h3>
+            <p>
+              Каждый автомобиль проходит проверку по базе ГИБДД и юридическую
+              экспертизу перед продажей.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- контактная форма -->
+      <section class="contact" id="contact">
+        <div class="container contact-inner">
+          <div class="contact-text">
+            <h2>Остались вопросы?</h2>
+            <p>
+              Оставьте заявку — перезвоним в течение 15 минут и подберём авто
+              под ваш бюджет.
+            </p>
+          </div>
+
+          <form class="contact-form" action="#" novalidate>
+            <div class="form-field">
+              <label for="name">Имя</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Как к вам обращаться"
+                autocomplete="name"
+              />
+            </div>
+            <div class="form-field">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="you@example.com"
+                autocomplete="email"
+              />
+            </div>
+            <div class="form-field form-field--wide">
+              <label for="message">Сообщение</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                placeholder="Какой автомобиль вас интересует?"
+              ></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary form-submit">
+              Отправить
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <a href="#top" class="logo logo--footer">
+          <span class="logo-badge">FA</span>
+          <span class="logo-text">FleetAuto</span>
+        </a>
+        <p class="footer-copy">© Компания ООО "ТМЫВ ТАЧЕК"</p>
+      </div>
+    </footer>
+  </body>
+</html>

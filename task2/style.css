@@ -1,0 +1,662 @@
+/* 1. Переменные и сброс */
+:root {
+  --navy-900: #0c1327;
+  --navy-800: #121a34;
+  --navy-700: #1a2440;
+  --navy-border: #2a3560;
+  --blue-500: #2f5fd9;
+  --blue-600: #2650b8;
+  --ink-900: #10131c;
+  --ink-600: #5b6373;
+  --ink-400: #8890a0;
+  --paper-0: #ffffff;
+  --paper-100: #f4f6fb;
+  --paper-200: #e7ebf5;
+  --radius-s: 8px;
+  --radius-m: 14px;
+  --radius-l: 22px;
+  --gap-section: 64px;
+  --container-w: 1160px;
+  --font-main: "Manrope", "Segoe UI", Arial, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-main);
+  color: var(--ink-900);
+  background: var(--paper-0);
+  overflow-x: hidden;
+
+  /* Основная структурная сетка страницы */
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto auto auto;
+  grid-template-areas:
+    "header"
+    "hero"
+    "catalog"
+    "perks"
+    "contact"
+    "footer";
+}
+
+.site-header {
+  grid-area: header;
+  grid-row: 1;
+}
+.hero {
+  grid-area: hero;
+  grid-row: 2;
+}
+.catalog {
+  grid-area: catalog;
+  grid-row: 3;
+}
+.perks {
+  grid-area: perks;
+  grid-row: 4;
+}
+.contact {
+  grid-area: contact;
+  grid-row: 5;
+}
+.site-footer {
+  grid-area: footer;
+  grid-row: 6;
+}
+
+h1,
+h2,
+h3,
+p,
+dl,
+dd,
+figure,
+ul {
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-w);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* 2. Кнопки и мелкие элементы (Flexbox) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 22px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.15s ease,
+    box-shadow 0.2s ease;
+}
+
+.btn-primary {
+  background: var(--blue-500);
+  color: var(--paper-0);
+}
+.btn-primary:hover {
+  background: var(--blue-600);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(47, 95, 217, 0.28);
+}
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-outline {
+  background: transparent;
+  border-color: var(--navy-border);
+  color: var(--paper-0);
+}
+.btn-outline:hover {
+  border-color: var(--paper-0);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.btn-compact {
+  padding: 0 16px;
+  font-size: 0.85rem;
+  display: none;
+}
+.btn-block {
+  width: 100%;
+}
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: var(--paper-0);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.icon-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.icon-btn--framed {
+  color: var(--blue-500);
+  border: 1.5px solid var(--paper-200);
+  background: var(--paper-0);
+  flex-shrink: 0;
+}
+.icon-btn--framed:hover {
+  border-color: var(--blue-500);
+  background: var(--paper-100);
+}
+
+/* 3. Шапка (Flexbox для навигации) */
+.site-header {
+  background: var(--navy-900);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 72px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--paper-0);
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
+.logo-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-s);
+  background: var(--blue-500);
+  font-size: 0.8rem;
+}
+.logo-text {
+  font-size: 1.05rem;
+}
+
+.main-nav {
+  display: none;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.burger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+.burger span {
+  display: block;
+  height: 2px;
+  width: 22px;
+  margin: 0 auto;
+  background: var(--paper-0);
+  border-radius: 2px;
+}
+
+/* 4. Hero */
+.hero {
+  background: var(--navy-900);
+  color: var(--paper-0);
+  padding: 40px 0 56px;
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 36px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  font-size: 0.8rem;
+  color: var(--paper-200);
+}
+
+.hero-text h1 {
+  margin-top: 16px;
+  font-size: 1.9rem;
+  line-height: 1.2;
+  font-weight: 800;
+  max-width: 20ch;
+}
+
+.accent {
+  background: var(--blue-500);
+  padding: 0 6px;
+  border-radius: 6px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.hero-lead {
+  margin-top: 16px;
+  color: var(--paper-200);
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 42ch;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.feature-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 32px;
+}
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.feature-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: var(--radius-s);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--paper-0);
+}
+.feature-text {
+  font-size: 0.88rem;
+  color: var(--paper-200);
+  line-height: 1.4;
+}
+
+.hero-car {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: var(--radius-l);
+}
+
+/* 5. Каталог (Grid для карточек, Flexbox внутри карточки) */
+.catalog {
+  background: var(--paper-100);
+  padding: 56px 0;
+}
+.catalog h2,
+.contact-text h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+}
+
+.catalog-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-top: 28px;
+}
+
+.car-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--paper-0);
+  border-radius: var(--radius-l);
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(16, 19, 28, 0.06);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+.car-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 28px rgba(16, 19, 28, 0.12);
+}
+
+.car-card-media {
+  height: 200px;
+  overflow: hidden;
+}
+
+.car-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.car-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 18px 22px 22px;
+}
+
+.car-card-title-row h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.car-price {
+  font-size: 0.95rem;
+  color: var(--ink-600);
+  font-weight: 600;
+}
+
+.car-specs {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-top: 12px;
+  border-top: 1px solid var(--paper-200);
+}
+.car-specs > div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 0.82rem;
+}
+.car-specs dt {
+  color: var(--ink-400);
+}
+.car-specs dd {
+  color: var(--ink-900);
+  font-weight: 600;
+  text-align: right;
+}
+
+.car-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.catalog-more {
+  display: flex;
+  justify-content: center;
+  margin-top: 36px;
+}
+
+/* 6. Полоса преимуществ */
+.perks {
+  background: var(--paper-0);
+  padding: 48px 0;
+}
+.perks-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.perk h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.perk p {
+  color: var(--ink-600);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+/* 7. Форма обратной связи */
+.contact {
+  background: var(--paper-100);
+  padding: 56px 0;
+}
+.contact-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+.contact-text p {
+  margin-top: 10px;
+  color: var(--ink-600);
+  line-height: 1.6;
+}
+
+.contact-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1 1 100%;
+  min-width: 0;
+}
+.form-field label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink-900);
+}
+
+.form-field input,
+.form-field textarea {
+  min-height: 44px;
+  padding: 10px 14px;
+  border-radius: var(--radius-s);
+  border: 1.5px solid var(--paper-200);
+  background: var(--paper-0);
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--ink-900);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+.form-field textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.form-field input:hover,
+.form-field textarea:hover {
+  border-color: #c3cadd;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  outline: none;
+  border-color: var(--blue-500);
+  box-shadow: 0 0 0 4px rgba(47, 95, 217, 0.15);
+}
+
+.form-submit {
+  align-self: flex-start;
+  margin-top: 4px;
+}
+
+/* 8. Футер Flexbox */
+.site-footer {
+  background: var(--navy-900);
+  color: var(--paper-200);
+  padding: 28px 0;
+}
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+.logo--footer {
+  color: var(--paper-0);
+}
+.footer-copy {
+  font-size: 0.82rem;
+  color: var(--ink-400);
+}
+
+/* таблеты: 768px – 1199px */
+@media (min-width: 768px) {
+  .main-nav {
+    display: block;
+  }
+  .nav-list {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: var(--paper-200);
+  }
+  .nav-list a {
+    transition: color 0.2s ease;
+  }
+  .nav-list a:hover {
+    color: var(--paper-0);
+  }
+
+  .burger {
+    display: none;
+  }
+  .btn-compact {
+    display: inline-flex;
+  }
+
+  .hero-text h1 {
+    font-size: 2.4rem;
+    max-width: 18ch;
+  }
+
+  .hero-buttons {
+    flex-wrap: nowrap;
+  }
+
+  .feature-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .feature-item {
+    flex: 1 1 45%;
+  }
+
+  .catalog-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .perks-grid {
+    flex-direction: row;
+  }
+  .perk {
+    flex: 1;
+  }
+
+  .contact-inner {
+    grid-template-columns: 0.9fr 1.1fr;
+    align-items: start;
+  }
+  .form-field:not(.form-field--wide) {
+    flex: 1 1 200px;
+  }
+
+  .footer-inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+/* десктоп: от 1200px */
+@media (min-width: 1200px) {
+  .hero-inner {
+    grid-template-columns: 1.05fr 0.95fr;
+    align-items: center;
+    gap: 48px;
+  }
+  .hero-text {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .hero-media {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .hero-text h1 {
+    font-size: 2.7rem;
+    max-width: 21ch;
+  }
+
+  .catalog-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+
+  .contact-inner {
+    grid-template-columns: 0.7fr 1.3fr;
+  }
+  .contact-form {
+    max-width: 640px;
+  }
+}
