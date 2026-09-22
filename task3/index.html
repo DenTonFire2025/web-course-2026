@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo-list — Лабораторная работа №3</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <h1>Список задач</h1>
+
+      <!-- поле ввода + кнопка добавления -->
+      <form id="add-form" class="add-form">
+        <input
+          type="text"
+          id="task-input"
+          placeholder="Что нужно сделать?"
+          autocomplete="off"
+        />
+        <button type="submit" id="add-btn">Добавить</button>
+      </form>
+
+      <!-- предупреждение при пустом поле -->
+      <p id="warning" class="warning hidden">
+        Введите текст задачи, поле не может быть пустым.
+      </p>
+
+      <!-- фильтр -->
+      <div class="filters" id="filters">
+        <button class="filter-btn active" data-filter="all" type="button">
+          Все
+        </button>
+        <button class="filter-btn" data-filter="active" type="button">
+          Активные
+        </button>
+        <button class="filter-btn" data-filter="completed" type="button">
+          Завершённые
+        </button>
+      </div>
+
+      <!-- счётчик -->
+      <p class="counters">
+        Осталось: <span id="active-count">0</span> · Выполнено:
+        <span id="completed-count">0</span>
+      </p>
+
+      <!-- список задач. Содержимое ul полностью генерируется в script.js -->
+      <ul id="task-list" class="task-list"></ul>
+
+      <p id="empty-message" class="empty-message hidden">Задач пока нет.</p>
+    </main>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
