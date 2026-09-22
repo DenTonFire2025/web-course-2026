@@ -1,0 +1,164 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 32px 16px;
+  background: #eef1f5;
+  color: #1f2933;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+.app {
+  width: 100%;
+  max-width: 460px;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 28px 24px;
+  box-shadow: 0 2px 8px rgba(31, 41, 51, 0.08);
+}
+
+h1 {
+  margin: 0 0 20px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+/* Форма добавления задачи */
+.add-form {
+  display: flex;
+  gap: 8px;
+}
+
+#task-input {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid #cbd2d9;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+#task-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+#add-btn {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  background: #3b82f6;
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+#add-btn:hover {
+  background: #2f6fd6;
+}
+
+/* Предупреждение о пустом поле */
+.warning {
+  margin: 8px 0 0;
+  color: #d64545;
+  font-size: 13px;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Фильтр */
+.filters {
+  display: flex;
+  gap: 6px;
+  margin-top: 18px;
+}
+
+.filter-btn {
+  flex: 1;
+  padding: 8px 6px;
+  border: 1px solid #cbd2d9;
+  background: #f5f7fa;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  color: #1f2933;
+}
+
+.filter-btn.active {
+  background: #3b82f6;
+  border-color: #3b82f6;
+  color: #fff;
+}
+
+/* Счётчик */
+.counters {
+  margin: 14px 0 6px;
+  font-size: 13px;
+  color: #52606d;
+  text-align: center;
+}
+
+/* Список задач */
+.task-list {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 4px;
+  border-bottom: 1px solid #e4e7eb;
+}
+
+.task-item:last-child {
+  border-bottom: none;
+}
+
+.task-checkbox {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.task-text {
+  flex: 1;
+  word-break: break-word;
+  font-size: 15px;
+}
+
+/* Обязательный класс по условию задания */
+.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.delete-btn {
+  border: none;
+  background: #fbeaea;
+  color: #c02f2f;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.delete-btn:hover {
+  background: #f6d3d3;
+}
+
+.empty-message {
+  text-align: center;
+  color: #9aa5b1;
+  font-size: 14px;
+  margin-top: 16px;
+}
