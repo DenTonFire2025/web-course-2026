@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Быки и коровы</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="game">
+      <h1>Быки и коровы</h1>
+
+      <p class="rules">
+        Я загадал число из четырёх разных цифр. Угадайте его.
+        <strong>Бык</strong> — цифра угадана и стоит на своём месте.
+        <strong>Корова</strong> — цифра есть в числе, но стоит на другом месте.
+      </p>
+
+      <form id="guess-form" class="guess-form" novalidate>
+        <label class="visually-hidden" for="guess-input"
+          >Ваше предположение</label
+        >
+        <input
+          id="guess-input"
+          class="guess-input"
+          type="text"
+          inputmode="numeric"
+          autocomplete="off"
+          placeholder="1234"
+        />
+        <button id="check-btn" class="btn btn--primary" type="submit">
+          Проверить
+        </button>
+      </form>
+
+      <p id="message" class="message" role="status" aria-live="polite"></p>
+
+      <p class="attempts">Попыток: <span id="attempts-count">0</span></p>
+
+      <ul id="history" class="history"></ul>
+
+      <button id="new-game-btn" class="btn btn--secondary" type="button">
+        Новая игра
+      </button>
+    </main>
+  </body>
+</html>
