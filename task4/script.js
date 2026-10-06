@@ -1,4 +1,6 @@
-const CODE_LENGTH = 4;
+const CODE_LENGTH = 6;
+const BULLS = 0;
+const COWS = 4;
 
 const state = {
   secret: "",
@@ -146,11 +148,12 @@ function handleGuess(event) {
   const { bulls, cows } = countBullsAndCows(state.secret, value);
   state.history.push({ guess: value, bulls, cows });
 
-  if (bulls === CODE_LENGTH) {
+  if (bulls === BULLS && cows === COWS) {
     const attempts = state.history.length;
     state.isWon = true;
+    state.secret;
     state.message = {
-      text: `Победа! Угадано за ${attempts} ${pluralize(attempts, ["попытку", "попытки", "попыток"])}`,
+      text: `Победа! Число ${state.secret} Угадано за ${attempt} ${pluralize(attempts, ["попытку", "попытки", "попыток"])}`,
       type: "win",
     };
   } else {

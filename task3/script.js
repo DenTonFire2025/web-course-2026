@@ -11,7 +11,6 @@ const activeCountEl = document.getElementById("active-count");
 const completedCountEl = document.getElementById("completed-count");
 const filterButtons = document.querySelectorAll(".filter-btn");
 
-// Добавление новой задачи в массив
 function addTask(rawText) {
   const text = rawText.trim();
 
@@ -32,7 +31,6 @@ function addTask(rawText) {
   render();
 }
 
-// Переключение отметки выполнено по idшке задачи
 function toggleTask(id) {
   tasks = tasks.map(function (task) {
     if (task.id === id) {
@@ -43,7 +41,6 @@ function toggleTask(id) {
   render();
 }
 
-// Удаление задачи по id
 function deleteTask(id) {
   tasks = tasks.filter(function (task) {
     return task.id !== id;
@@ -51,7 +48,6 @@ function deleteTask(id) {
   render();
 }
 
-// Возвращает подмассив задач, которые нужно показать при текущем фильтре.
 function getVisibleTasks() {
   return tasks.filter(function (task) {
     if (currentFilter === "active") return !task.completed;
@@ -60,7 +56,6 @@ function getVisibleTasks() {
   });
 }
 
-// Создаёт один <li> для одной задачи
 function createTaskElement(task) {
   const li = document.createElement("li");
   li.className = "task-item";
@@ -92,7 +87,6 @@ function createTaskElement(task) {
   return li;
 }
 
-// Пересчитывает и выводит счётчики
 function updateCounters() {
   const activeCount = tasks.filter(function (t) {
     return !t.completed;
@@ -104,10 +98,7 @@ function updateCounters() {
   activeCountEl.textContent = activeCount;
   completedCountEl.textContent = completedCount;
 }
-
-// Главная функция отрисовки вызывается после изменения данных
 function render() {
-  // очищаем список и перерисовываем заново на основе массива tasks
   listEl.innerHTML = "";
 
   const visibleTasks = getVisibleTasks();
@@ -121,22 +112,19 @@ function render() {
   updateCounters();
 }
 
-// submit формы обрабатывает и клик по кнопке,
 formEl.addEventListener("submit", function (event) {
-  event.preventDefault(); // чтобы страница не перезагружалась
+  event.preventDefault();
   addTask(inputEl.value);
   inputEl.value = "";
   inputEl.focus();
 });
 
-// Убираем предупреждение, как только пользователь начал печатать
 inputEl.addEventListener("input", function () {
   if (inputEl.value.trim() !== "") {
     warningEl.classList.add("hidden");
   }
 });
 
-// Переключение фильтра
 filterButtons.forEach(function (btn) {
   btn.addEventListener("click", function () {
     currentFilter = btn.dataset.filter;
