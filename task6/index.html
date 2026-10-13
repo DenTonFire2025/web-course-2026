@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Змейка — Лабораторная работа №6</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="game">
+      <h1 class="game__title">Змейка</h1>
+      <p class="game__score">Счёт: <span id="score">0</span></p>
+
+      <div class="game__field">
+        <canvas
+          id="game-canvas"
+          class="game__canvas"
+          aria-label="Игровое поле"
+        ></canvas>
+
+        <div id="game-over" class="game__overlay" hidden>
+          <h2 class="game__overlay-title">Игра окончена</h2>
+          <p class="game__overlay-text">
+            Ваш счёт: <span id="final-score">0</span>
+          </p>
+          <button id="restart-btn" class="game__button" type="button">
+            Начать заново
+          </button>
+        </div>
+      </div>
+
+      <p class="game__hint">Управление: стрелки ← ↑ ↓ →</p>
+    </main>
+  </body>
+</html>

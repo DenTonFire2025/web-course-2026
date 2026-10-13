@@ -1,12 +1,12 @@
 "use strict";
 
-const PAD_COUNT = 4;
+const PAD_COUNT = 5;
 const SHOW_MS = 500;
 const GAP_MS = 250;
 const PLAYER_FLASH_MS = 200;
 const FIRST_DELAY_MS = 500;
 const ROUND_DELAY_MS = 900;
-const PAD_FREQUENCIES = [262, 330, 392, 523];
+const PAD_FREQUENCIES = [262, 330, 392, 523, 676];
 
 const state = {
   sequence: [],
@@ -26,6 +26,36 @@ const statusEl = document.getElementById("status");
 const startBtn = document.getElementById("start");
 const soundEl = document.getElementById("sound");
 const padEls = Array.from(document.querySelectorAll(".pad"));
+
+const START_ANGLE = -90; 
+const GAP_DEG = 3;       
+
+
+function layoutPads() {
+  const span = 360 / PAD_COUNT;
+
+  padEls.forEach((pad, i) => {
+    const from = START_ANGLE + i * span + GAP_DEG / 2;
+    const to = START_ANGLE + (i + 1) * span - GAP_DEG / 2;
+    const steps = Math.max(2, Math.ceil((to - from) / 3)); 
+
+    const points = ['50% 50%']; 
+    for (let s = 0; s <= steps; s++) {
+      const angle = ((from + ((to - from) * s) / steps) * Math.PI) / 180;
+      const x = 50 + 50 * Math.cos(angle);
+      const y = 50 + 50 * Math.sin(angle);
+      points.push(`${x.toFixed(2)}% ${y.toFixed(2)}%`);
+    }
+    pad.style.clipPath = `polygon(${points.join(', ')})`;
+
+   
+    const hue = Math.round((i * 360) / PAD_COUNT);
+    pad.style.setProperty('--off', `hsl(${hue} 65% 42%)`);
+    pad.style.setProperty('--on', `hsl(${hue} 100% 70%)`);
+  });
+}
+
+layoutPads();
 
 const pendingTimers = new Map();
 
@@ -152,7 +182,7 @@ function handlePadClick(index) {
 
   flashPad(index, PLAYER_FLASH_MS);
 
-  if (!isCorrectStep(index)) {
+  if (isCorrectStep(index)) {
     endGame();
     return;
   }

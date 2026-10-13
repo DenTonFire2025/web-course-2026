@@ -1,0 +1,114 @@
+:root {
+  --bg: #0b1220;
+  --border: #1e293b;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --accent: #22c55e;
+  --accent-hover: #4ade80;
+  --overlay: rgba(11, 18, 32, 0.88);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  color: var(--text);
+  font-family:
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+}
+
+.game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  max-width: 100%;
+}
+
+.game__title {
+  margin: 0;
+  font-size: 2rem;
+  letter-spacing: 0.04em;
+}
+
+.game__score {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.game__hint {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* Поле: рамка + контейнер для наложения экрана «Игра окончена» */
+.game__field {
+  position: relative;
+  max-width: 100%;
+  border: 3px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.game__canvas {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.game__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: var(--overlay);
+  text-align: center;
+}
+
+/* Без этого display:flex перебивает атрибут hidden */
+.game__overlay[hidden] {
+  display: none;
+}
+
+.game__overlay-title {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.game__overlay-text {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.game__button {
+  padding: 10px 24px;
+  border: none;
+  border-radius: 6px;
+  background: var(--accent);
+  color: #052e16;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.game__button:hover,
+.game__button:focus-visible {
+  background: var(--accent-hover);
+}
