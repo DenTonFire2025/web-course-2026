@@ -110,18 +110,14 @@
 
     getNextHead() {
       const head = this.snake[0];
-      return { x: head.x + this.direction.x, y: head.y + this.direction.y };
+      const size = this.gridSize;
+      return {
+        x: (head.x + this.direction.x + size) % size,
+        y: (head.y + this.direction.y + size) % size,
+      };
     }
 
     checkCollision(point, willGrow) {
-      const isOutOfField =
-        point.x < 0 ||
-        point.y < 0 ||
-        point.x >= this.gridSize ||
-        point.y >= this.gridSize;
-      if (isOutOfField) {
-        return true;
-      }
       const bodyToCheck = willGrow ? this.snake : this.snake.slice(0, -1);
       return bodyToCheck.some(function (segment) {
         return isSamePoint(segment, point);
@@ -131,7 +127,7 @@
     moveSnake(nextHead, grow) {
       this.snake.unshift(nextHead);
       if (grow) {
-        this.score += 1;
+        this.score += 2;
         this.spawnApple();
       } else {
         this.snake.pop();

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Лента постов</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="app-header__inner">
+        <h1 class="app-header__title">Лента постов</h1>
+        <label class="search">
+          <span class="visually-hidden">Поиск по заголовку</span>
+          <input
+            id="search"
+            class="search__input"
+            type="search"
+            placeholder="Поиск по заголовку…"
+            autocomplete="off"
+          />
+        </label>
+        <p id="counter" class="counter" aria-live="polite"></p>
+      </div>
+    </header>
+
+    <main class="feed">
+      <ul id="posts" class="posts"></ul>
+
+      <p id="empty" class="notice" hidden>
+        Среди загруженных постов нет заголовков с такой подстрокой.
+      </p>
+
+      <div class="status">
+        <div id="loader" class="loader" role="status" hidden>
+          <span class="spinner" aria-hidden="true"></span>
+          <span>Загрузка…</span>
+        </div>
+
+        <div id="error" class="error" role="alert" hidden>
+          <p id="error-text" class="error__text"></p>
+          <button id="retry" class="button" type="button">Повторить</button>
+        </div>
+
+        <button
+          id="load-more"
+          class="button button--secondary"
+          type="button"
+          hidden
+        >
+          Загрузить ещё посты
+        </button>
+
+        <p id="end" class="notice" hidden>Больше постов нет</p>
+      </div>
+    </main>
+  </body>
+</html>
